@@ -1,7 +1,7 @@
 ##My Website will feature a home page, about me, and 3 web applications
 
 import requests
-from flask import Flask, render_template request
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy 
 
 # Initialize an instance of the Flask class.
@@ -58,7 +58,7 @@ class City(db.Model):
 
 
 @app.route('/weatherApp', methods=['GET', 'POST'])
-def index():
+def weatherApp():
     if request.method == 'POST':
         new_city = request.form.get('city')
         
