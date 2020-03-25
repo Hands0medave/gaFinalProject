@@ -1,7 +1,12 @@
-	{%extends "base.html"%}
-	{%block content%}
-    <div class="discountCalculator">
-       <h1>Discount Calculator</h1>
-       <p>lets figure out the final sale cost after discount is applied</p>
-    </div>
+{%extends "base.html"%}
+{%block content%}
+   <div class="discountCalculator">
+      <h1>Discount Calculator</h1>
+       <form action="" method="post">
+       <p>lets figure out the final sale cost after discount is applied<b/>
+       		{{forms.tagPrice.label}}<b/>
+       		{{forms.tagPrice.(size=30)}}<b/>
+       </p>
+       </form>
+   </div>
     {%endblock%}

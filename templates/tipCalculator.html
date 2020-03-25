@@ -1,7 +1,16 @@
 {%extends "base.html"%}
 {%block content%}
     <div class="tip calculator">
-       <h1>tip calculator</h1>
-       <p>This is an application for calculting tips.</p>
+       <h1>Tip Calculator</h1>
+       <form action="" method="post">
+      	 <p>Who enjoys doing math after a big meal?(Nobody).<b/>
+       		{{forms.bill.label}}<b/>
+       		{{forms.bill.(size=30)}}
+       	</p>
+       	<p>
+       		{{forms.percentage.label}}<b/>
+       		{{forms.percentage.(size=30)}}
+       	</p> 
+       </form>
     </div>
 {%endblock%}
