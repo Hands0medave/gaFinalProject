@@ -1,16 +1,19 @@
 {%extends "base.html"%}
 {%block content%}
-    <div class="tip calculator">
-       <h1>Tip Calculator</h1>
-       <form action="" method="post">
-      	 <p>Who enjoys doing math after a big meal?(Nobody).<b/>
-       		{{forms.bill.label}}<b/>
-       		{{forms.bill.(size=30)}}
-       	</p>
-       	<p>
-       		{{forms.percentage.label}}<b/>
-       		{{forms.percentage.(size=30)}}
-       	</p> 
-       </form>
-    </div>
+    <div class="formwrapper">
+        <h2 class="title">Tip Calculator</h2>
+            <p>Who enjoys doing math after a big meal?(Nobody)</p>
+            <form method="POST" action="/tip_calculator">
+                <div class="form-field">{{ form.bill.label }} {{ form.bill(size=20) }}</div>
+                <div class="form-field">{{ form.percentage.label }} {{ form.percentage }}</div>
+                {{ form.submit }}
+            </form>
+            
+        {% if pagedata %}
+            <div class="container">
+                <div class="row">
+                    Your total bill is: ${{ pagedata.totalBill}}
+                </div>
+            </div>
+        {% endif %}
 {%endblock%}
