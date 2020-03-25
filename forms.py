@@ -1,10 +1,10 @@
 from flask_wtf import FlaskForm
-from wtforms import FloatField, IntegerField
+from wtforms import StringField
 
 class InputForm(FlaskForm):
-	bill = IntegerField("Bill")
-	percentage = IntegerField('Percent')
+	bill = StringField("Bill")
+	percentage = StringField('Percent')
 
 class DiscountForm(FlaskForm)
-	tagPrice =FloatField('Tagged Price')
-	discount =FloatField('% Discount')
+	tagPrice =StringField('Tagged Price')
+	discount =StringField('% Discount')

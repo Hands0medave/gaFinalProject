@@ -32,16 +32,31 @@ def calculateTip (bill, percent):
 	return(totalBill)
 
 #function that ruturns the tip calculator app
-@app.route('/tip Calculator/')	
+@app.route('/tip Calculator/', methods=["GET", "POST"])	
 def tipCalculator():
     form= InputForm()
+
+        # If POST
+        # then do something
+    if request.method == "POST":
+
+        userBill = form.userBill
+        userPercentage =form.userPercentage
+
+        message1 = f"Enter your Bill: {str(userBill}"
+        message2 = f"What percentage do you want to tip?: {str(userPercentage}"
+        
+        userData = {
+            "messaage1": message1,
+            "message2": messag2
+
 	userBill = input("enter your bill:")
 	tipPercentage = input("what percentage do you want to tip? ")
 	tipPercentage = int(tipPercentage)/100
 	totalBill = calculateTip(int(userBill),tipPercentage)
 	
 	print(f"your total bill plus tip is ${totalBill}")
-	return render_template('tipCalculator.html',form=form)
+	return render_template('tipCalculator.html',form=form, userData=pagedata)
 
 #function that returns the guess the number game
 @app.route('/discountCalculator/')
