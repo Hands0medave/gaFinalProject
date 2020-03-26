@@ -52,15 +52,24 @@ def tipCalculator():
     return render_template('tipCalculator.html',form=form, pagedata=pagedata)
     
 #function that returns the guess the number game
-@app.route('/discountCalculator')
+@app.route('/discount_calculator', methods=["GET", "POST"])
 def discountCalculator():
+    
     form = DiscountForm()
-    itemPrice = float(input("what is the price of the item?"))
-    percentDiscount = float(input("What is the percent discount?"))
-    reducedPrice = itemPrice - itemPrice *percentDiscount /100
-    #Generate the output
-    print(f"the reduced price of the item is $ {reducedPrice}")
-    return render_template('discountCalculator.html', form=form)
+    pagedata = {}
+    
+    if request.method == "POST":
+        itemPrice = int(request.form["tagPrice"])
+        percentDiscount = int(request.form["discount"])
+    
+        """ Calculate discounted price """
+        reducedPrice = itemPrice - (itemPrice * percentDiscount / 100)
+        
+        pagedata = {
+            "reducedPrice": reducedPrice
+        }
+        
+    return render_template('discountCalculator.html', form=form, pagedata=pagedata)
     
     
 #weather app

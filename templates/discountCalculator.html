@@ -1,12 +1,20 @@
 {%extends "base.html"%}
+
 {%block content%}
-   <div class="discountCalculator">
-      <h1>Discount Calculator</h1>
-       <form action="" method="post">
-       <p>lets figure out the final sale cost after discount is applied<b/>
-       		{{forms.tagPrice.label}}<b/>
-       		{{forms.tagPrice.(size=30)}}<b/>
-       </p>
-       </form>
-   </div>
-    {%endblock%}
+    <div class="formwrapper">
+        <h2 class="title">Discount Calculator</h2>
+            <p>Who enjoys doing math after a big meal?(Nobody)</p>
+            <form method="POST" action="/discount_calculator">
+                <div class="form-field">{{ form.tagPrice.label }} {{ form.tagPrice(size=20) }}</div>
+                <div class="form-field">{{ form.discount.label }} {{ form.discount }}</div>
+                {{ form.submit }}
+            </form>
+            
+        {% if pagedata %}
+            <div class="container">
+                <div class="row">
+                    The reduced price of the item is ${{ pagedata.reducedPrice}}
+                </div>
+            </div>
+        {% endif %}
+{%endblock%}
