@@ -7,5 +7,6 @@ class InputForm(FlaskForm):
     submit = SubmitField('Submit!')
 
 class DiscountForm(FlaskForm):
-    tagPrice =IntegerField('Tagged Price')
-    discount =IntegerField('% Discount')
+    tagPrice =IntegerField('What is the price of the item?')
+    discount =IntegerField('What is the percent discount?')
+    submit = SubmitField('Submit!')
