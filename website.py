@@ -14,7 +14,6 @@ app.config['SECRET_KEY'] = 'spinal tap'
 
 # The default URL ends in / ("my-website.com/").
 @app.route('/')
-
 # Function that returns the home page
 def home():
     return render_template('home.html')
